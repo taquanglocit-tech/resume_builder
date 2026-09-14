@@ -1,0 +1,178 @@
+{
+  "basics": {
+    "name": "Nguyễn Văn A",
+    "label": "Nhân viên Kinh doanh",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv5VE1Hr6euI97u-QdmcwGQkwcBpTxaWmWNQ&s",
+    "email": "nguyenvana@email.com",
+    "phone": "+84 9876543210",
+    "url": "https://linkedin.com/in/nguyenvana",
+    "summary": "Nhân viên kinh doanh nhiệt huyết với 5 năm kinh nghiệm trong lĩnh vực B2B. Có thành tích xuất sắc trong việc mở rộng thị trường, xây dựng mối quan hệ bền vững với khách hàng và chốt các hợp đồng giá trị lớn. Kỹ năng giao tiếp và đàm phán tốt.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Hà Nội",
+      "countryCode": "VN",
+      "region": ""
+    },
+    "relExp": "5 năm",
+    "totalExp": "7 năm",
+    "objective": "Mong muốn tìm kiếm cơ hội phát triển tại một môi trường năng động, nơi có thể phát huy tối đa kỹ năng bán hàng và tư duy chiến lược để đóng góp vào sự tăng trưởng doanh số của công ty.",
+    "profiles": [
+      {
+        "network": "linkedin",
+        "username": "nguyenvana",
+        "url": "https://www.linkedin.com/in/nguyenvana/"
+      },
+      {
+        "network": "facebook",
+        "username": "nguyenvana",
+        "url": "https://facebook.com/nguyenvana"
+      },
+      {
+        "network": "twitter",
+        "username": "nguyenvana",
+        "url": "https://x.com/nguyenvana"
+      }
+    ]
+  },
+  "skills": {
+    "languages": [
+      {
+        "name": "Tiếng Anh (Giao tiếp)",
+        "level": 80
+      },
+      {
+        "name": "Tiếng Trung (HSK 5)",
+        "level": 70
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "Tìm kiếm khách hàng",
+        "level": 90
+      },
+      {
+        "name": "Đàm phán & Thương lượng",
+        "level": 85
+      },
+      {
+        "name": "Chốt Sale",
+        "level": 90
+      },
+      {
+        "name": "Chăm sóc khách hàng",
+        "level": 80
+      }
+    ],
+    "technologies": [
+      {
+        "name": "Giao tiếp",
+        "level": 3
+      },
+      {
+        "name": "Làm việc nhóm",
+        "level": 3
+      },
+      {
+        "name": "Quản lý thời gian",
+        "level": 3
+      },
+      {
+        "name": "Tư duy phản biện",
+        "level": 3
+      }
+    ],
+    "libraries": [],
+    "databases": [],
+    "practices": [],
+    "tools": [
+      {
+        "name": "Microsoft Office (Excel, Word, PP)",
+        "level": 3
+      },
+      {
+        "name": "Phần mềm CRM",
+        "level": 3
+      },
+      {
+        "name": "Zoom / Google Meet",
+        "level": 3
+      },
+      {
+        "name": "Canva Cơ bản",
+        "level": 3
+      }
+    ]
+  },
+  "work": [
+    {
+      "id": "1",
+      "name": "Công ty Bất động sản ABC",
+      "position": "Trưởng nhóm Kinh doanh",
+      "url": "",
+      "startDate": "2020",
+      "isWorkingHere": true,
+      "endDate": null,
+      "highlights": ["Đạt danh hiệu 'Best Seller' trong 3 quý liên tiếp năm 2021 và 2022."],
+      "summary": "<ul><li>Quản lý và đào tạo đội ngũ nhân viên kinh doanh gồm 10 người.</li><li>Xây dựng chiến lược bán hàng cho các dự án căn hộ cao cấp.</li><li>Duy trì và phát triển mối quan hệ với hơn 200 khách hàng tiềm năng.</li><li>Đàm phán và chốt thành công các hợp đồng trị giá trên 5 tỷ đồng.</li></ul>",
+      "years": ""
+    },
+    {
+      "id": "2",
+      "name": "Công ty Thương mại XYZ",
+      "position": "Nhân viên Kinh doanh",
+      "url": "",
+      "startDate": "2018",
+      "isWorkingHere": false,
+      "endDate": "2020",
+      "highlights": ["Vượt chỉ tiêu doanh số 120% trong năm đầu tiên làm việc."],
+      "summary": "<ul><li>Tìm kiếm và tiếp cận khách hàng mới thông qua các kênh online và offline.</li><li>Tư vấn và giải đáp thắc mắc cho khách hàng về sản phẩm của công ty.</li><li>Soạn thảo báo giá và hợp đồng thương mại.</li><li>Phối hợp với bộ phận kho vận để đảm bảo tiến độ giao hàng.</li></ul>",
+      "years": "2 năm"
+    }
+  ],
+  "education": [
+    {
+      "id": "1",
+      "institution": "Đại học Kinh tế Quốc dân",
+      "url": "https://neu.edu.vn/",
+      "studyType": "Cử nhân",
+      "area": "Quản trị Kinh doanh",
+      "startDate": "2014",
+      "isStudyingHere": false,
+      "endDate": "2018",
+      "score": "Giỏi",
+      "courses": []
+    }
+  ],
+  "activities": {
+    "involvements": "<ul><li>Tham gia tổ chức Hội chợ việc làm thường niên của trường Đại học.</li><li>Thành viên tích cực của CLB Kỹ năng mềm.</li></ul>",
+    "involvements_list": [
+      "Tham gia tổ chức Hội chợ việc làm thường niên của trường Đại học.",
+      "Thành viên tích cực của CLB Kỹ năng mềm."
+    ],
+    "achievements": "<ul><li>Giải Nhì cuộc thi 'Thử thách Nhà bán hàng tài năng' cấp trường.</li></ul>",
+    "achievements_list": ["Giải Nhì cuộc thi 'Thử thách Nhà bán hàng tài năng' cấp trường."]
+  },
+  "volunteer": [
+    {
+      "id": "1",
+      "organization": "Quỹ từ thiện Mùa hè xanh",
+      "position": "Tình nguyện viên",
+      "url": "",
+      "startDate": "2015-06",
+      "endDate": "2015-08",
+      "summary": "Tham gia dạy học cho trẻ em nghèo tại vùng cao.",
+      "highlights": ["Được khen thưởng vì tinh thần cống hiến nhiệt tình."],
+      "isVolunteeringNow": false
+    }
+  ],
+  "awards": [
+    {
+      "id": "1",
+      "title": "Nhân viên Kinh doanh Xuất sắc",
+      "date": "2021",
+      "awarder": "Công ty Bất động sản ABC",
+      "summary": "Vượt chỉ tiêu doanh số năm"
+    }
+  ]
+}
