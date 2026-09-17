@@ -1,10 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import puppeteer from 'puppeteer';
 
-export default async function handler(
-  request: NextApiRequest,
-  response: NextApiResponse,
-) {
+export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   if (request.method !== 'POST') {
     return response.status(405).json({ message: 'Method not allowed' });
   }
@@ -28,12 +25,9 @@ export default async function handler(
       deviceScaleFactor: 1,
     });
 
-    await page.evaluateOnNewDocument(
-      (selectedTemplateId) => {
-        localStorage.setItem('selectedTemplateId', selectedTemplateId);
-      },
-      templateId,
-    );
+    await page.evaluateOnNewDocument((selectedTemplateId) => {
+      localStorage.setItem('selectedTemplateId', selectedTemplateId);
+    }, templateId);
 
     await page.goto(`${baseUrl}/builder`, {
       waitUntil: 'networkidle0',
@@ -83,8 +77,8 @@ export default async function handler(
                 image.addEventListener('load', finish, { once: true });
                 image.addEventListener('error', finish, { once: true });
                 setTimeout(finish, 5000);
-              }),
-          ),
+              })
+          )
       );
       await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     });
@@ -98,10 +92,7 @@ export default async function handler(
     });
 
     response.setHeader('Content-Type', 'application/pdf');
-    response.setHeader(
-      'Content-Disposition',
-      'attachment; filename="resume.pdf"',
-    );
+    response.setHeader('Content-Disposition', 'attachment; filename="resume.pdf"');
     response.setHeader('Content-Length', pdf.length.toString());
 
     response.status(200).end(pdf);
