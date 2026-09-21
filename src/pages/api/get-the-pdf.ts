@@ -1,24 +1,30 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable import/no-unresolved */
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-async function getBrowser() {
+async function getBrowser(): Promise<any> {
   const isVercel = Boolean(process.env.VERCEL || process.env.NEXT_PUBLIC_VERCEL_ENV);
   if (isVercel) {
-    // eslint-disable-next-line import/no-unresolved
-    const chromium = (await import('@sparticuz/chromium')).default;
-    // eslint-disable-next-line import/no-unresolved
-    const puppeteerCore = (await import('puppeteer-core')).default;
+    try {
+      // eslint-disable-next-line no-eval
+      const chromium = (await eval('import("@sparticuz/chromium")')).default;
+      // eslint-disable-next-line no-eval
+      const puppeteerCore = (await eval('import("puppeteer-core")')).default;
 
-    return await puppeteerCore.launch({
-      args: chromium.args,
-      defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath(),
-      headless: chromium.headless,
-    });
-  } else {
-    // eslint-disable-next-line import/no-unresolved
-    const puppeteer = (await import('puppeteer')).default;
-    return await puppeteer.launch({ headless: true });
+      return await puppeteerCore.launch({
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
+      });
+    } catch (err) {
+      console.error('Failed to launch serverless chromium:', err);
+    }
   }
+  // @ts-ignore
+  const puppeteer = (await import('puppeteer')).default;
+  return await puppeteer.launch({ headless: true });
 }
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
@@ -45,7 +51,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
       deviceScaleFactor: 1,
     });
 
-    await page.evaluateOnNewDocument((selectedTemplateId) => {
+    await page.evaluateOnNewDocument((selectedTemplateId: string) => {
       localStorage.setItem('selectedTemplateId', selectedTemplateId);
     }, templateId);
 
@@ -53,7 +59,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
       waitUntil: 'networkidle0',
     });
 
-    await page.evaluate((data) => {
+    await page.evaluate((data: any) => {
       window.postMessage({ type: 'LOAD_RESUME_DATA', payload: data }, '*');
     }, resumeData);
 
