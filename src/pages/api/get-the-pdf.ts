@@ -6,21 +6,17 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 async function getBrowser(): Promise<any> {
   const isVercel = Boolean(process.env.VERCEL || process.env.NEXT_PUBLIC_VERCEL_ENV);
   if (isVercel) {
-    try {
-      // eslint-disable-next-line no-eval
-      const chromium = (await eval('import("@sparticuz/chromium")')).default;
-      // eslint-disable-next-line no-eval
-      const puppeteerCore = (await eval('import("puppeteer-core")')).default;
+    // @ts-ignore
+    const chromium = (await import('@sparticuz/chromium')).default;
+    // @ts-ignore
+    const puppeteerCore = (await import('puppeteer-core')).default;
 
-      return await puppeteerCore.launch({
-        args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(),
-        headless: chromium.headless,
-      });
-    } catch (err) {
-      console.error('Failed to launch serverless chromium:', err);
-    }
+    return await puppeteerCore.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    });
   }
   // @ts-ignore
   const puppeteer = (await import('puppeteer')).default;
