@@ -3,7 +3,9 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 async function getBrowser() {
   const isVercel = Boolean(process.env.VERCEL || process.env.NEXT_PUBLIC_VERCEL_ENV);
   if (isVercel) {
+    // eslint-disable-next-line import/no-unresolved
     const chromium = (await import('@sparticuz/chromium')).default;
+    // eslint-disable-next-line import/no-unresolved
     const puppeteerCore = (await import('puppeteer-core')).default;
 
     return await puppeteerCore.launch({
@@ -13,6 +15,7 @@ async function getBrowser() {
       headless: chromium.headless,
     });
   } else {
+    // eslint-disable-next-line import/no-unresolved
     const puppeteer = (await import('puppeteer')).default;
     return await puppeteer.launch({ headless: true });
   }
