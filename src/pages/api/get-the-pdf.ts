@@ -1,5 +1,22 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import puppeteer from 'puppeteer';
+
+async function getBrowser() {
+  const isVercel = Boolean(process.env.VERCEL || process.env.NEXT_PUBLIC_VERCEL_ENV);
+  if (isVercel) {
+    const chromium = (await import('@sparticuz/chromium')).default;
+    const puppeteerCore = (await import('puppeteer-core')).default;
+
+    return await puppeteerCore.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    });
+  } else {
+    const puppeteer = (await import('puppeteer')).default;
+    return await puppeteer.launch({ headless: true });
+  }
+}
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   if (request.method !== 'POST') {
@@ -15,7 +32,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
   const protocolHeader = request.headers['x-forwarded-proto'];
   const protocol = Array.isArray(protocolHeader) ? protocolHeader[0] : protocolHeader;
   const baseUrl = `${protocol || 'http'}://${request.headers.host || 'localhost:3000'}`;
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await getBrowser();
 
   try {
     const page = await browser.newPage();
